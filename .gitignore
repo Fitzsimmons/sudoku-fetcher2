@@ -4,3 +4,4 @@ vendor
 build
 *.tfstate
 *.tfstate.backup
+infrastructure/config
