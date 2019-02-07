@@ -1,0 +1,6 @@
+.bundle
+vendor
+.terraform
+build
+*.tfstate
+*.tfstate.backup
