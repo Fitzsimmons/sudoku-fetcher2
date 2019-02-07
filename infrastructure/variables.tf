@@ -5,3 +5,6 @@ variable "aws_profile" {
 variable "aws_region" {
 	default = "us-east-2"
 }
+
+variable "domain_name" {}
+variable "zone_id" {}
