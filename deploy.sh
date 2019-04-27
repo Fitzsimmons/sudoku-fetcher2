@@ -13,5 +13,6 @@ fi
 (
 	cd infrastructure
 	terraform workspace select "${ENVIRONMENT_NAME}"
+	terraform init -get -get-plugins
 	terraform apply -var-file "config/${ENVIRONMENT_NAME}.tfvars.json"
 )

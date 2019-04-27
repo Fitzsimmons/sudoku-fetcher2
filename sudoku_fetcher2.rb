@@ -4,7 +4,8 @@ require "rest-client"
 DEFAULT_LEVEL = "4".freeze
 
 def sudoku_fetcher2(event:, context:)
-  level = event["queryStringParameters"] || DEFAULT_LEVEL
+  puts event.inspect
+  level = event["queryStringParameters"]&.fetch("level") || DEFAULT_LEVEL
 
   raw_data = get(level)
   cheat, editmask = parse(raw_data)
@@ -18,7 +19,10 @@ def sudoku_fetcher2(event:, context:)
 end
 
 def get(level)
-  RestClient.get("http://view.websudoku.com/?level=#{level}")
+  uri = "http://view.websudoku.com/?level=#{level}"
+  puts "Making get request to #{uri}"
+
+  RestClient.get(uri)
 end
 
 def parse(raw_data)
